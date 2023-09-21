@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 import List from "../components/List";
-import Link from "../components/Link";
+import {Link as RouterLink} from "react-router-dom";
 
 const Projects = ({userName}) => {
     const [loading, setLoading] = useState(true);
@@ -32,7 +32,11 @@ const Projects = ({userName}) => {
                         <div>
                             <List items={projects.map(project => ({
                                 field: project.name,
-                                value: <Link url={project.html_url} title={project.html_url} />
+                                value: (
+                                    <RouterLink to={`/projects/${project.name}`}>
+                                        Open project
+                                    </RouterLink>
+                                )
                             }))} />
                         </div>
                     )

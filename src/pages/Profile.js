@@ -3,14 +3,14 @@ import Link from "../components/Link";
 import './Profile.css'
 import List from "../components/List";
 
-const Profile = ({username}) => {
+const Profile = ({userName}) => {
     const [loading, setLoading] = useState(true)
     const [profile, setProfile] = useState({})
 
 
     useEffect(() => {
         async function fetchData() {
-            const profile = await fetch(`https://api.github.com/users/${username}`);
+            const profile = await fetch(`https://api.github.com/users/${userName}`);
             const result = await profile.json();
 
             if (result) {
@@ -21,7 +21,7 @@ const Profile = ({username}) => {
 
         fetchData();
 
-    }, [username])
+    }, [userName])
 
     const items = [
         {
