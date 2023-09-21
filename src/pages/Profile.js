@@ -4,7 +4,7 @@ import './Profile.css'
 import List from "../components/List";
 
 const Profile = ({username}) => {
-    const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(true)
     const [profile, setProfile] = useState({})
 
 
